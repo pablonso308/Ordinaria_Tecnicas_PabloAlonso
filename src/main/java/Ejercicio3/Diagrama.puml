@@ -1,0 +1,125 @@
+@startuml
+
+' Define the classes
+
+class Document {
+    -String title
+    -String type
+    -String content
+    +Document(String title, String type, String content)
+    +String getTitle()
+    +String getType()
+    +String getContent()
+}
+
+class Requirement {
+    -String description
+    -boolean completed
+    +Requirement(String description)
+    +String getDescription()
+    +boolean isCompleted()
+    +void markAsCompleted()
+}
+
+class Milestone {
+    -String name
+    -Date dueDate
+    -boolean completed
+    +Milestone(String name, Date dueDate)
+    +String getName()
+    +Date getDueDate()
+    +boolean isCompleted()
+    +void markAsCompleted()
+}
+
+class Supplier {
+    -String name
+    -String contactInfo
+    +Supplier(String name, String contactInfo)
+    +String getName()
+    +String getContactInfo()
+}
+
+class Investor {
+    -String name
+    -String contactInfo
+    +Investor(String name, String contactInfo)
+    +String getName()
+    +String getContactInfo()
+}
+
+class IPOProcess {
+    -List<Document> documents
+    -List<Requirement> requirements
+    -List<Milestone> milestones
+    -List<Supplier> suppliers
+    -List<Investor> investors
+    +void addDocument(Document document)
+    +void addRequirement(Requirement requirement)
+    +void addMilestone(Milestone milestone)
+    +void addSupplier(Supplier supplier)
+    +void addInvestor(Investor investor)
+    +List<Document> getDocuments()
+    +List<Requirement> getRequirements()
+    +List<Milestone> getMilestones()
+    +List<Supplier> getSuppliers()
+    +List<Investor> getInvestors()
+}
+
+class IPOView {
+    -JTextField titleField
+    -JTextField typeField
+    -JTextArea contentArea
+    -JTextArea outputArea
+    -JButton addDocumentButton
+    -JButton addRequirementButton
+    -JButton addMilestoneButton
+    -JButton addSupplierButton
+    -JButton addInvestorButton
+    +IPOView()
+    +String getTitle()
+    +String getType()
+    +String getContent()
+    +void setOutput(String text)
+    +void addAddDocumentButtonListener(ActionListener listener)
+    +void addAddRequirementButtonListener(ActionListener listener)
+    +void addAddMilestoneButtonListener(ActionListener listener)
+    +void addAddSupplierButtonListener(ActionListener listener)
+    +void addAddInvestorButtonListener(ActionListener listener)
+}
+
+class IPOController {
+    -IPOProcess model
+    -IPOView view
+    +IPOController(IPOProcess model, IPOView view)
+    +class AddDocumentButtonListener
+    +class AddRequirementButtonListener
+    +class AddMilestoneButtonListener
+    +class AddSupplierButtonListener
+    +class AddInvestorButtonListener
+}
+
+' Define relationships
+
+IPOProcess --> Document
+IPOProcess --> Requirement
+IPOProcess --> Milestone
+IPOProcess --> Supplier
+IPOProcess --> Investor
+
+IPOController --> IPOProcess
+IPOController --> IPOView
+
+IPOView ..> Document : creates
+IPOView ..> Requirement : creates
+IPOView ..> Milestone : creates
+IPOView ..> Supplier : creates
+IPOView ..> Investor : creates
+
+IPOController::AddDocumentButtonListener --> Document
+IPOController::AddRequirementButtonListener --> Requirement
+IPOController::AddMilestoneButtonListener --> Milestone
+IPOController::AddSupplierButtonListener --> Supplier
+IPOController::AddInvestorButtonListener --> Investor
+
+@enduml
