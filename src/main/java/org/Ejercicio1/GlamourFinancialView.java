@@ -1,8 +1,6 @@
-package org.example;
+package org.Ejercicio1;
 
-import java.util.Scanner;// GlamourFinancialView.java
 import javax.swing.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class GlamourFinancialView extends JFrame {

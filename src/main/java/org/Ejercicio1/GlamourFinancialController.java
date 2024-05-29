@@ -1,4 +1,4 @@
-package org.example;
+package org.Ejercicio1;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

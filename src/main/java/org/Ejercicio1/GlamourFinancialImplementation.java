@@ -1,4 +1,4 @@
-package org.example;
+package org.Ejercicio1;
 
 // GlamourFinancialImplementation.java
 import java.util.HashMap;

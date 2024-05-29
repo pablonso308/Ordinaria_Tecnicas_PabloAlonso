@@ -1,4 +1,4 @@
-package org.example;
+package org.Ejercicio1;
 
 // Main.java
 public class Main {
