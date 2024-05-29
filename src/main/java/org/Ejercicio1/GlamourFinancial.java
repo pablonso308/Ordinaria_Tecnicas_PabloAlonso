@@ -1,4 +1,4 @@
-package org.example;
+package org.Ejercicio1;
 
 // GlamourFinancial.java
 public interface GlamourFinancial {
