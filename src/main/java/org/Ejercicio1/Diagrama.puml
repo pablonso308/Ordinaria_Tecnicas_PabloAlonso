@@ -1,0 +1,22 @@
+@startuml
+
+' Define interfaces and classes
+
+interface GlamourFinancial {
+    +double getStockPrice(String market)
+    +void updateStockPrice(String market, double price)
+    +double calculateMarketValue()
+    +double calculatePriceToBookValue()
+}
+
+class GlamourFinancialImplementation implements GlamourFinancial {
+    -Map<String, Double> stockPrices
+    +GlamourFinancialImplementation()
+    +double getStockPrice(String market)
+    +void updateStockPrice(String market, double price)
+    +double calculateMarketValue()
+    +double calculatePriceToBookValue()
+}
+
+@enduml
+
