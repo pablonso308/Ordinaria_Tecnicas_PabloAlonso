@@ -1,0 +1,72 @@
+@startuml
+
+' Define classes
+
+class Subject {
+    -String name
+    -int credits
+    +Subject(String name, int credits)
+    +String getName()
+    +int getCredits()
+}
+
+class Course {
+    -String name
+    -List<Subject> subjects
+    +Course(String name)
+    +void addSubject(Subject subject)
+    +List<Subject> getSubjects()
+}
+
+class Employee {
+    -String name
+    -List<AcademicRecord> academicRecords
+    +Employee(String name)
+    +void enrollInCourse(Course course)
+    +void addGrade(Subject subject, double grade)
+    +double calculateGPA()
+    +List<Certificate> getCertificates()
+}
+
+class AcademicRecord {
+    -Subject subject
+    -double grade
+    +AcademicRecord(Subject subject, double grade)
+    +Subject getSubject()
+    +double getGrade()
+}
+
+class Certificate {
+    -String name
+    -Employee employee
+    +Certificate(String name, Employee employee)
+    +String getName()
+    +Employee getEmployee()
+}
+
+class TrainingSystem {
+    -List<Course> courses
+    -List<Employee> employees
+    +void addCourse(Course course)
+    +void registerEmployee(Employee employee)
+    +void enrollEmployeeInCourse(Employee employee, Course course)
+    +void addEmployeeGrade(Employee employee, Subject subject, double grade)
+    +void issueCertificate(Employee employee, String certificateName)
+    +List<Course> getCourses()
+    +List<Employee> getEmployees()
+}
+
+' Define relationships
+
+TrainingSystem --> Course
+TrainingSystem --> Employee
+TrainingSystem --> Certificate
+
+Employee --> Course
+Employee --> AcademicRecord
+Employee --> Certificate
+
+Course --> Subject
+AcademicRecord --> Subject
+
+@enduml
